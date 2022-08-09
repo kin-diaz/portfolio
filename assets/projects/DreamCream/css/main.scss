@@ -1,0 +1,482 @@
+// Imports the font 'Poppins' from Google-Fonts.
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+// Compiles all the colours used in the website.
+$colour: #2F3A5A, #FFF, #96CB9D, #1C2335;
+
+// This mixin styles all the buttons to be a green button.
+@mixin button-style ($width, $height) {
+    width: $width;
+    height: $height;
+    background-color: nth($colour, 3);
+    border: none;
+    border-radius: 10px;
+    align-items: center;
+    font-weight: bold;
+    color: nth($colour, 2);
+
+    &:hover {
+        background-color: darken(nth($colour, 3), 10%);
+    }
+}
+
+// This mixin makes the element into a flexbox and easily sets the other properties in one line.
+@mixin flexbox-style ($flex-direction, $justify-content, $align-items) {
+    display: flex;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+// This mixin is used for the media-screen breakpoints.
+@mixin breakpoint ($minwidth, $maxwidth) {
+    @media screen and (min-width:$minwidth) and (max-width:$maxwidth) {
+        @content;
+    }
+}
+
+// Styles all the elements by changing the font-family to 'Poppins' and removing the default margin and padding.
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+// The body selector sets the background colour and the font-sizes.
+body {
+    background-color: nth($colour, 1);
+
+    // Changes the font-weight to normal.
+    h1, h2, h3 { font-weight: normal; }
+
+    // Sets the font-sizes for all the heading tags and the p tag for mobile view.
+    h1 { font-size: 32px; }
+    h2 { font-size: 25px; color: nth($colour, 2);}
+    h3 { font-size: 16px; }
+    p { font-size: 14px; }
+
+    // At 620px, the font sizes becomes bigger.
+    @include breakpoint(620px, 2000px) {
+        h1 { font-size: 55px; }
+        h2 { font-size: 30px; }
+        h3 { font-size: 18px; }
+        p { font-size: 16px; }
+    }
+
+    // At 900px, the h1 font becomes bigger.
+    @include breakpoint(900px, 2000px) {
+        h1 { font-size: 65px; }
+    }
+}
+
+// The header tag styles the navigation bar.
+header {
+    border-bottom: 1px solid nth($colour, 2);
+    padding: 0 30px;
+    
+    .nav-bar {
+        // Turns it into a flex-box.
+        @include flexbox-style(row, space-between, center);
+
+        // Styles the logo appropriately.
+        .logo {
+            margin: 12px 0;
+            width: 176px;
+            height: 56px;
+    
+            // Gives the animation where the image increases in scale when hovered.
+            img {
+                width: 100%;
+                transition: transform .5s ease;
+    
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    
+        // Styles the a tag.
+        a {
+            padding-top: 6px;
+            text-decoration: none;
+            color: nth($colour, 2);
+
+            // Displays the last child.
+            &:last-child {
+                display: block;
+            }
+            // Hides all the other elements.
+            &:not(:last-child) {
+                display: none;
+            }
+
+            // When any element is hovered, it darkens the colour by 20% to give the visual feedback for UX.
+            &:hover {
+                color: darken(nth($colour, 2), 20%);
+
+                // At 620px, there is a background colour when the links are hovered.
+                @include breakpoint(620px, 2000px) {
+                    color: nth($colour, 1);
+                    background-color: nth($colour, 2);
+                }
+            }
+
+            // At 620px, The elements grow to fill the container.
+            @include breakpoint(620px, 2000px) {
+                flex-grow: 1;
+                padding: 33px 20px 28px;
+                text-align: center;
+
+                // Hides the last child.
+                &:last-child {
+                    display: none;
+                }
+                // Displays all the other elements.
+                &:not(:last-child) {
+                    display: block;
+                }
+            }
+
+            // At 800px, the link tags separate from each other because there is extra space.
+            @include breakpoint(800px, 2000px) {
+                flex-grow: 0;
+                width: 100px;
+                padding: 33px 30px 28px;
+            }
+        }
+
+        // This is when hamburger icon is clicked.
+        &.res {
+            position: relative; // The position is set to relative to put the elements in one line.
+
+            // Sets the a tag to not float and displays it as block.
+            a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+        }
+    }
+}
+
+// Styles the intro class.
+.intro {
+    margin: 70px 75px;
+    text-align: center;
+
+    // Turns it into a flex-box.
+    @include flexbox-style(column, space-between, center);
+
+    // Styles all the elements inside the 'intro' and gives them a white colour.
+    * {
+        color: nth($colour, 2);
+    }
+
+    // Changes the width of the h1 to be bigger at different screen sizes.
+    h1 {
+        @include breakpoint(620px, 2000px) {
+            width: 450px;
+        }
+        @include breakpoint(900px, 2000px) {
+            width: 530px;
+        }
+    }
+
+    // Styles the p tag.
+    p {
+        margin: 12px 0 35px 0;
+    }
+
+    // Styles the button by including the button-style mixin.
+    button {
+        @include button-style(263px, 56px);
+    }
+}
+
+// Styles the 'more-info' class.
+.more-info {
+    // Turns it into a flexbox.
+    @include flexbox-style(column, space-between, center);
+
+    // Gives it a white background colour and a 30px padding on all sides.
+    background-color: nth($colour, 2);
+    padding: 30px;
+
+    // Gives the img a width of 100% to fill the container.
+    .save-img {
+        width: 100%;
+    }
+
+    div {
+        // Turns the div into a flexbox and gives it a gap of 10px.
+        @include flexbox-style(column, none, none);
+        gap: 10px;
+
+        // Sets the h3 and p tags colours.
+        h3 { color: nth($colour, 4); }
+        p { color: nth($colour, 1); }
+    }
+
+    // At 900px, the flexbox becomes a row instead of a column.
+    @include breakpoint(900px, 2000px) {
+        @include flexbox-style(row, space-between, center);
+
+        // Gives the img a width of 50% to fill only half the container.
+        .save-img {
+            width: 50%;
+        }
+
+    }
+}
+
+// Sets the 'line' class that separates the sections.
+.line {
+    margin: 30px;
+    width: 100%;
+    border-top: 1px solid nth($colour, 2);
+    line-height: 1.25;
+}
+
+// Styles the 'customer-reviews' class.
+.customer-reviews {
+    // Turns it into a flexbox and gives it a 50px margin on the right and left.
+    @include flexbox-style(column, none, center);
+    margin: 0 50px;
+
+    // Styles the 'quote-icon' image.
+    .quote-icon {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 30px;
+
+        // At 620px, the width becomes bigger to make up for the increase in space.
+        @include breakpoint(620px, 2000px) {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    // Styles the p tag.
+    p {
+        margin-bottom: 30px;
+        color: nth($colour, 2);
+    }
+
+    // Styles the 'slideshow-container'
+    .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+        display: block;
+
+        // Hides the slides as it will be shown through JavaScript.
+        .mySlides {
+            display: none;
+        }
+
+        // Styles the fade animation.
+        .fade {
+            animation-name: fade;
+            animation-duration: 1s;
+        }
+        
+        // Sets the keyframes to change the opacity.
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+
+        // Styles the 'review' class.
+        .review {
+            width: 252px;
+            border-radius: 10px;
+            background-color: nth($colour, 2);
+    
+            // Turns it into a flexbox.
+            @include flexbox-style(column, space-between, none);
+    
+            // Styles the images.
+            img {
+                margin: 20px;
+                width: 214px;
+                height: 205px;
+                object-fit: cover;
+                box-sizing: border-box;
+                border-radius: 10px;
+    
+                // At 620px, increases the width and height.
+                @include breakpoint(620px, 2000px) {
+                    width: 250px;
+                    height: 240px;
+                }
+            }
+            
+            p {
+                margin: 0 20px 20px;
+                color: nth($colour, 1);
+            }
+            
+            // At 620px, increases the width.
+            @include breakpoint(620px, 2000px) {
+                width: 288px;
+            }
+    
+            // At 900px, changes the styling to give a transparent look.
+            @include breakpoint(900px, 2000px) {
+                background-color: transparent;
+    
+                p { color: nth($colour, 2); }
+            }
+        }
+    }
+    
+    // Styles the 'dot' class.
+    .dot {
+        cursor: pointer; // Changes the mouse to pointer.
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.2s ease; // Transitions it smoothly.
+    }
+
+    // Styles the dots when its active and when its hovered.
+    .active, .dot:hover {
+        background-color: #717171;
+    }
+    
+    // At 900px, changes up the styling.
+    @include breakpoint(900px, 2000px) {
+        // Changes the 'slideshow-container' class flexbox to row.
+        .slideshow-container {
+            @include flexbox-style(row, center, center);
+            // Wraps the contents and gives a 25px gap.
+            flex-wrap: wrap;
+            gap: 25px;
+
+            // Overrides the JavaScript coding by changing the display from none to inline.
+            .mySlides {
+                display: inline !important;
+            }
+        }
+
+        // Hides the 'dot-container' class.
+        .dot-container {
+            display: none;
+        }
+
+        // Styles the 'container' class of the review class by giving it an animation.
+        .container {
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            border: 2px solid nth($colour, 4);
+
+            // When hovered, there is a white background, the colour changes and it scales up.
+            &:hover {
+                background-color: nth($colour, 2);
+                p { color: nth($colour, 1); }
+                transform: scale(1.02);
+            }
+        }
+    }
+}
+
+// Styles the 'plan' class.
+.plan {
+    // Turns it into a flexbox and gives a 50px margin on the left and right.
+    @include flexbox-style(column, space-between, center);
+    margin: 0 50px;
+
+    // The direct p tag from the class is given a white colour and 30px margin-bottom.
+    & > p {
+        color: nth($colour, 2);
+        margin-bottom: 30px;
+    }
+
+    // The 'plan-container' class becomes a flexbox that wraps the contents according to the width.
+    .plan-container {
+        @include flexbox-style(row, space-between, center);
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+
+        // At 1280px, the flex-wrap becomes nowrap to put all the elements in 1 line.
+        @include breakpoint(1280px, 2000px) {
+            flex-wrap: nowrap;
+        }
+    }
+
+    // Styles the 'basic', 'premium' and 'business' class.
+    .basic, .premium, .business {
+        padding: 30px;
+        justify-self: flex-start;
+        box-sizing: border-box;
+        border-radius: 15px;
+        background-color: nth($colour, 2);
+        left: calc(-50vw + 50%);
+        width: 100%;
+        transition: transform .3s ease;
+
+        // When hovered, the scale increases.
+        &:hover {
+            transform: scale(1.02);
+        }
+
+        // Styles all the elements to have a blue colour.
+        * {
+            color: nth($colour, 1);
+        }
+
+        // Styles the 'box' class.
+        .box {
+            display: inline-block;
+            border-radius: 5px;
+            background-color: nth($colour, 1);
+            color: nth($colour, 2);
+            padding: 5px 8px;
+        }
+
+        // Styles the direct h2 tag from the class.
+        & > h2 {
+            margin: 20px 0 8px;
+        }
+
+        // Styles the direct p tag from the class.
+        & > p {
+            margin-bottom: 20px;
+        }
+
+        // Styles the 'check-list' class by turning it into a flexbos and giving it a 10px gap.
+        .check-list {
+            @include flexbox-style(column, space-between, none);
+            gap: 10px;
+
+            // The direct div from the class turns into a flexbox with a 15px gap.
+            & > div {
+                @include flexbox-style(row, none, center);
+                gap: 15px;
+            }
+        }
+
+        // Styles the button by including the button-style mixin and giving it a margin-top of 30px.
+        button {
+            @include button-style(322px, 56px);
+            margin-top: 30px;
+        }
+    }
+
+    // Sets the width and height of the check images.
+    img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+// Styles the footer simply.
+footer {
+    margin: 50px 0 30px;
+    text-align: center;
+    color: nth($colour, 2);
+}

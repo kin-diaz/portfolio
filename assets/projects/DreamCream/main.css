@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #2F3A5A;
+}
+
+.nav {
+  border-bottom: 1px solid white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 50px;
+}
+
+.nav a {
+  color: white;
+  padding: 32px 50px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav a:hover {
+  color: #2F3A5A;
+  background-color: white;
+}
+
+.nav .logo {
+  width: 176px;
+  height: 56px;
+}
+
+.nav .logo img {
+  height: 100%;
+  width: 100%;
+  -webkit-transition: -webkit-transform .5s ease;
+  transition: -webkit-transform .5s ease;
+  transition: transform .5s ease;
+  transition: transform .5s ease, -webkit-transform .5s ease;
+}
+
+.nav .logo img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.sign_up {
+  color: white;
+  text-align: center;
+}
+
+.sign_up h1 {
+  font-weight: 400;
+  font-size: 40px;
+  margin-top: 65px;
+  margin-bottom: 12px;
+}
+
+.sign_up p {
+  font-size: 16px;
+  margin-bottom: 35px;
+}
+
+.sign_up button {
+  background-color: #96DB9D;
+  border-radius: 10px;
+  padding: 15px 50px;
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+/*# sourceMappingURL=main.css.map */

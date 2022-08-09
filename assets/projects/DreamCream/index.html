@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Cream</title>
+
+    <!-- Links the 'main.css' stylesheet and the online stylesheet. -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Links the tab icon. -->
+    <link href="images/ice-cream.png" rel="shortcut icon" />
+</head>
+<body>
+    <!-- Header tag contains the navigation bar. -->
+    <header>
+        <!-- The 'nav-bar' class has the logo, links and hamburger icon. -->
+        <div class="nav-bar" id="nav">
+            <div class="logo"><img src="images/logo.png" alt="logo"></div>
+            <a href="#">ABOUT US</a>
+            <a href="#">DELIVERY</a>
+            <a href="#">ORDER</a>
+            <a href="javascript:void(0);" class="icon" onclick="addClass()"><i class="fa fa-bars fa-lg"></i></a>
+        </div>
+    </header>
+
+    <!-- The first section is the 'intro' class. -->
+    <div class="intro">
+        <!-- It has the page's tagline. -->
+        <h1>YOU'LL NEVER GET TIRED OF US</h1>
+        <p>Get more of your money with Dream Cream</p>
+        <button>SIGN ME UP!</button> <!-- This is the sign me up button. -->
+    </div>
+
+    <!-- The second section is the 'more-info' class. -->
+    <div class="more-info">
+        <!-- It has the 'save' image and the main features of the website. -->
+        <img src="images/save.jpg" alt="save-img" class="save-img">
+
+        <!-- The div is used to separate the image from the text. -->
+        <div>
+            <!-- The main feature has a header and a paragraph tag each. -->
+            <h3>More chunks</h3>
+            <p>With our help you can get 50% more toppings and goods on your favourite ice cream flavours.</p>
+            <h3>Get your treats faster</h3>
+            <p>Arrives at your doorstep in under an hour to relieve you of your stress and fatigue, then and there.</p>
+            <h3>Save up</h3>
+            <p>Storing your money for rainy days has never been easier - just click away and let double the happiness in.</p>
+        </div>
+    </div>
+
+    <!-- The third section is the 'customer-reviews' class -->
+    <div class="customer-reviews">
+        <div class="line"></div> <!-- This 'line' class is used to give the white line that separates the section. -->
+
+        <!-- This is the 'quote' image and the heading texts. -->
+        <img src="images/quote.png" alt="quote-icon" class="quote-icon">
+        <h2>WHAT OUR CUSTOMERS SAY</h2>
+        <p>See for yourself!</p>
+
+        <!-- The 'slide-show-container' class contains the image slideshow. -->
+        <div class="slideshow-container">
+
+            <!-- The 'container' class is used to animate the boxes. -->
+            <div class="container">
+                <!-- The 'mySlides' class is used for moving through them and the 'fade' class gives the animtion effect. -->
+                <div class="mySlides fade">
+                    <!-- The 'review' class contains the review's image and text. -->
+                    <div class="review">
+                        <img src="images/review-1.jpg" alt="review-1">
+                        <p>That extra scoop is all I live for! The very best birthday present ever!<br><br>- Laura Kim</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The 'container' class is used to animate the boxes. -->
+            <div class="container">
+                <!-- The 'mySlides' class is used for moving through them and the 'fade' class gives the animtion effect. -->
+                <div class="mySlides fade">
+                    <!-- The 'review' class contains the review's image and text. -->
+                    <div class="review">
+                        <img src="images/review-2.jpg" alt="review-2">
+                        <p>This huge pile of flavours just came and I couldn’t be happier.<br><br>- Aslan Indie</p>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- The 'container' class is used to animate the boxes. -->
+            <div class="container">
+                <!-- The 'mySlides' class is used for moving through them and the 'fade' class gives the animtion effect. -->
+                <div class="mySlides fade">
+                    <!-- The 'review' class contains the review's image and text. -->
+                    <div class="review">
+                        <img src="images/review-3.jpg" alt="review-2">
+                        <p>Didn’t think it would work as well as they said, but, here we are.<br><br>- Ben Longwood</p>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- The 'container' class is used to animate the boxes. -->
+            <div class="container">
+                <!-- The 'mySlides' class is used for moving through them and the 'fade' class gives the animtion effect. -->
+                <div class="mySlides fade">
+                    <!-- The 'review' class contains the review's image and text. -->
+                    <div class="review">
+                        <img src="images/review-4.jpg" alt="review-4">
+                        <p>Went to my favourite shop and got a free scoop today! Thanks guys!<br><br>- Maddison Grey</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- The 'container' class is used to animate the boxes. -->
+            <div class="container">
+                <!-- The 'mySlides' class is used for moving through them and the 'fade' class gives the animtion effect. -->
+                <div class="mySlides fade">
+                    <!-- The 'review' class contains the review's image and text. -->
+                    <div class="review">
+                        <img src="images/review-5.jpg" alt="review-5">
+                        <p>The hot summer son has never been cooler with a second scoop of ice cream.<br><br>- Len Undermine</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The 'container' class is used to animate the boxes. -->
+            <div class="container">
+                <!-- The 'mySlides' class is used for moving through them and the 'fade' class gives the animtion effect. -->
+                <div class="mySlides fade">
+                    <!-- The 'review' class contains the review's image and text. -->
+                    <div class="review">
+                        <img src="images/review-6.jpg" alt="review-6">
+                        <p>Treating myself today! Just because I want to <3<br><br><br>- Emma Blueberry</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <br> <!-- This breakline helps give the space for the review and the buttons. -->
+
+        <!-- The 'dot-container' has the 'dot' classes that change the slideIndex to show the right currentSlide. -->
+        <div style="text-align:center" class="dot-container">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+          <span class="dot" onclick="currentSlide(4)"></span> 
+          <span class="dot" onclick="currentSlide(5)"></span> 
+          <span class="dot" onclick="currentSlide(6)"></span> 
+        </div>
+    </div>
+
+    <!-- The fourth section is the 'plan' class. -->
+    <div class="plan">
+        <div class="line"></div> <!-- The line class is used again to give the white line that separates. -->
+        
+        <!-- These are the heading texts. -->
+        <h2>GET THE RIGHT PLAN FOR YOU</h2>
+        <p>Keeping your budget in mind</p>
+
+        <!-- The 'plan-container' class contains the 3 plans: basic, premium and business. -->
+        <div class="plan-container">
+
+            <!-- The 'container' class is used to animate the boxes. -->
+            <div class="container">
+                <!-- The 'basic' class has the basic features. -->
+                <div class="basic">
+                    <!-- The 'box' class has the heading and the p tags. -->
+                    <div class="box">BASIC</div>
+                    <h2>$9.99/month</h2>
+                    <p>LEAVE THE SAVINGS TO US.</p>
+
+                    <!-- The 'check-list' class has the check image and its features then the sign me up button. -->
+                    <div class="check-list">
+                        <!-- The 'div' helps separate the features in one line. -->
+                        <div>
+                            <img src="images/check-mark.png" alt="check-mark" class="check-mark">
+                            <h3>Daily reminders</h3>
+                        </div>
+                        <div>
+                            <img src="images/check-mark.png" alt="check-mark" class="check-mark">
+                            <h3>Automatic savings</h3>
+                        </div>
+                        <div>
+                            <img src="images/check-mark.png" alt="check-mark" class="check-mark">
+                            <h3>Access to 1 free scoop</h3>
+                        </div>
+                        <div>
+                            <img src="images/check-mark.png" alt="check-mark" class="check-mark">
+                            <h3>20% discount in stores</h3>
+                        </div>
+                        <div>
+                            <img src="images/check-mark.png" alt="check-mark" class="check-mark">
+                            <h3>Updates on events</h3>
+                        </div>
+                    </div>
+
+                    <button>SIGN ME UP!</button>
+                </div>
+            </div>
+
+            <!-- The 'container' class is used to animate the boxes. -->
+            <div class="container">
+                <!-- The 'premium' class has the premium features. -->
+                <div class="premium">
+                    <!-- The 'box' class has the heading and the p tags. -->
+                    <div class="box">PREMIUM</div>
+                    <h2>$29.99/month</h2>
+                    <p>DO WHAT YOU LOVE.</p>
+
+                    <!-- The 'check-list' class has the check image and its features then the sign me up button. -->
+                    <div class="check-list">
+                        <!-- The 'div' helps separate the features in one line. -->
+                        <div>
+                            <img src="images/check-mark.png" alt="check-mark" class="check-mark">
+                            <h3>30% discounts in stores</h3>
+                        </div>
+                        <div>
+                            <img src="images/check-mark.png" alt="check-mark" class="check-mark">
+                            <h3>Access to limited flavours</h3>
+                        </div>
+                        <div>
+                            <img src="images/check-mark.png" alt="check-mark" class="check-mark">
+                            <h3>Automatic lottery tickets</h3>
+                        </div>
+                        <div>
+                            <img src="images/check-mark.png" alt="check-mark" class="check-mark">
+                            <h3>Free ice cream monthly</h3>
+                        </div>
+                        <div>
+                            <img src="images/check-mark.png" alt="check-mark" class="check-mark">
+                            <h3>Yearly events</h3>
+                        </div>
+                    </div>
+
+                    <button>SIGN ME UP!</button>
+                </div>
+            </div>
+            
+            <!-- The 'container' class is used to animate the boxes. -->
+            <div class="container">
+                <!-- The 'business' class has the business features. -->
+                <div class="business">
+                    <!-- The 'box' class has the heading and the p tags. -->
+                    <div class="box">BUSINESS</div>
+                    <h2>$49.99/month</h2>
+                    <p>LET’S GET TO BUSINESS.</p>
+
+                    <!-- The 'check-list' class has the check image and its features then the sign me up button. -->
+                    <div class="check-list">
+                        <!-- The 'div' helps separate the features in one line. -->
+                        <div>
+                            <img src="images/check-mark.png" alt="check-mark" class="check-mark">
+                            <h3>50% discounts in stores</h3>
+                        </div>
+                        <div>
+                            <img src="images/check-mark.png" alt="check-mark" class="check-mark">
+                            <h3>Food photography</h3>
+                        </div>
+                        <div>
+                            <img src="images/check-mark.png" alt="check-mark" class="check-mark">
+                            <h3>Less delivery time</h3>
+                        </div>
+                        <div>
+                            <img src="images/check-mark.png" alt="check-mark" class="check-mark">
+                            <h3>Monthly freebies</h3>
+                        </div>
+                        <div>
+                            <img src="images/check-mark.png" alt="check-mark" class="check-mark">
+                            <h3>Sponsership deals</h3>
+                        </div>
+                    </div>
+
+                    <button>SIGN ME UP!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- This is the footer tag that has the copyright text. -->
+    <footer>Dream Cream 2021 © All Rights Reserved</footer>
+
+    <!-- This links both the scripts used for this website. -->
+    <script src="javascript/slideShow.js"></script>
+    <script src="javascript/navBar.js"></script>
+</body>
+</html>
