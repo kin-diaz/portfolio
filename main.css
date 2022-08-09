@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&display=swap');
+
+/* ------------------- */
+/* Custom properties   */
+/* ------------------- */
+
+:root {
+    /* colors */
+    --clr-black: 0 0% 7%;
+    --clr-lightblack: 0 0% 13%;
+    --clr-grey: 0 0% 53%;
+    --clr-lightgrey: 0 0% 85%;
+    --clr-white: 0 0% 100%;
+    
+    /* font-sizes */
+    --fs-800: clamp(2rem, 8vw + 1rem, 2.5rem); /* handles the length of the text */
+    --fs-700: 2rem;
+    --fs-600: 1.25rem;
+    --fs-500: 1rem;
+    --fs-400: 0.875rem;
+    --fs-300: 0.75rem;
+    
+    /* font-families */
+    --ff-sans-normal: "IBM Plex Sans", sans-serif;
+}
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+    margin: 0; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 400;
+}
+
+/* set up the body */
+body {
+    font-family: var(--ff-sans-normal);
+    /* font-size: var(--fs-600); */
+    color: hsl( var(--clr-white) );
+    background-color: hsl( var(--clr-black) );
+    line-height: 1.5;
+    /* min-height: 100vh; */
+    
+    display: grid;
+    grid-template-rows: min-content 1fr;
+}
+
+/* make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------- */
+/* Utility classes     */
+/* ------------------- */
+
+/* general */
+
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+.grid {
+    display: grid;
+    gap: var(--gap, 1rem);
+}
+
+.d-block {
+    display: block;
+}
+
+.flow > *:where(:not(:first-child)) {
+    margin-top: var(--flow-space, 1rem);
+}
+
+.container {
+    padding-inline: 16em;
+    margin-inline: auto;
+    max-width: 80rem;
+}
+
+.grid-container {
+    text-align: center;
+    display: grid;
+    place-items: center;
+    padding-inline: 1rem;
+}
+
+.grid-container * {
+    max-width: 50ch;
+}
+
+@media (min-width: 45em) {
+    .grid-container {
+        text-align: left;
+        column-gap: var(--container-gap, 2rem);
+        grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(1rem, 1fr);
+    }
+    
+    .grid-container > *:first-child {
+        grid-column: 2;
+    }
+
+    .grid-container > *:last-child {
+        grid-column: 3;
+    }
+    
+    .grid-container--home {
+        padding-bottom: max(6rem, 20vh);
+        align-items: end;
+    }
+}
+
+
+.sr-only {
+  position: absolute; 
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px; 
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+/* colors */
+
+.bg-lightgrey { background-color: hsl( var(--clr-white) / .9 );}
+
+.text-black { color: hsl( var(--clr-black) );}
+.text-white { color: hsl( var(--clr-white) );}
+.text-grey { color: hsl( var(--clr-grey) );}
+
+/* typography */
+
+.ff-sans-normal { font-family: var(--ff-sans-normal); } 
+
+.uppercase { text-transform: uppercase; }
+
+.fs-800 { font-size: var(--fs-800); }
+.fs-700 { font-size: var(--fs-700); }
+.fs-600 { font-size: var(--fs-600); }
+.fs-500 { font-size: var(--fs-500); }
+.fs-400 { font-size: var(--fs-400); }
+.fs-300 { font-size: var(--fs-300); }
+
+.fs-800
+.fs-700,
+.fs-600 {
+    line-height: 1.1;
+}
+
+.fw-bold {
+    font-weight: 500;
+}
+
+.heading_text {
+    font-size: var(--fs-800);
+    font-weight: 500;
+}
+
+/* ------------------- */
+/* Components         */
+/* ------------------- */
+
+.nav_bar {
+    margin-top: 27px;
+    margin-bottom: 72px;
+}
+
+.nav_bar a {
+    text-decoration: none;
+    margin-right: 38px;
+}
+
+.intro {
+    margin-bottom: 72px;
+}
+
+.intro div:first-child {
+    width: 70%;
+}
+
+.intro .img {
+    width: 30%;
+    justify-content: end;
+    align-content: center;
+}
+
+.intro .img img {
+    width: 150px;
+    height: 150px;
+    border-radius: 500px;
+}
+
+.desc {
+    margin-top: 22px;
+}
+
+.projects {
+    margin-bottom: 24px;
+}
+
+/* Reverse */
+
+#reverse {
+    direction: rtl;
+}
+
+#reverse .text {
+    direction: ltr;
+    text-align: left;
+}
+
+#reverse .text .proj_lang p {
+    display: inline;
+    margin: 0 10px 0 0;
+}
+
+.projects .heading_text {
+    margin-bottom: 18px;
+}
+
+.project {
+    margin: 0 -50px;
+    margin-bottom: 80px;
+
+    position: relative;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+}
+
+.project .img {
+    background-color: hsl( var(--clr-grey) );;
+    width: 500px;
+    height: 280px;
+    border-radius: 5px;
+    grid-column: 1 / 8;
+
+    box-shadow: 0 10px 30px -15px var(--navy-shadow);
+    transition: var(--transition);
+    position: relative;
+    z-index: 1;
+
+    grid-area: 1 / 1 / -1 / -1;
+}
+
+.project .img img {
+    border-radius: 5px;
+    width: 500px;
+    height: 280px;
+    object-fit: cover;
+    object-position: left top;
+}
+
+.project .text {
+    grid-column: 7 / -1;
+    
+    text-align: right;
+    position: relative;
+    z-index: 2;
+
+    grid-area: 1 / 13 / -1 / 7;
+}
+
+.project .text .proj_desc {
+    margin-top: 14px;
+    margin-bottom: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+}
+
+.project .text .proj_lang p {
+    display: inline;
+    margin-left: 10px;
+}
+
+.project .text .proj_links {
+    font-size: 24px;
+}
+
+footer {
+    border-top: 1px solid #222222;
+    padding-top: 14px;
+    margin-bottom: 80px;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer .social {
+    margin-top: 22px;
+    font-size: 32px;
+}
+
+footer .social a {
+    margin-right: 15px;
+}
+
+.nav_bar a:hover, .project .text .proj_links i:hover, footer a:hover, footer .social i:hover {
+    color:  #222F58;
+}
